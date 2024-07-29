@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Weather Index Prediction</title>
+    <style>
+        /* Basic Reset */
+        body, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background and Text */
+        body {
+            background: url('{{ url_for('static', filename='batman_bg.jpg') }}') no-repeat center center fixed;
+            background-size: cover; /* Cover the entire page */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the left */
+            color: #eee; /* Light text color for contrast */
+            font-family: 'Arial', sans-serif; /* Simple, clean font */
+            padding: 20px; /* Add some padding to the body */
+        }
+
+        /* Form Container Styling */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+            text-align: left; /* Align text to the left */
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #f1c40f; /* Yellow color for a Batman-like touch */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #f39c12; /* Slightly different yellow for contrast */
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the left */
+        }
+
+        /* Input Styling */
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #222; /* Dark input background */
+            color: #eee; /* Light text color */
+        }
+
+        /* Button Styling */
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #e74c3c, #c0392b); /* Gradient fire effect */
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+            font-family: 'Arial', sans-serif; /* Ensure consistent font */
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.7), rgba(255, 0, 0, 0.5));
+            animation: fire 1.5s infinite linear;
+            z-index: 0;
+            transform: rotate(30deg);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #c0392b, #e74c3c); /* Reverse gradient on hover */
+        }
+
+        @keyframes fire {
+            0% {
+                transform: translateX(-50%) translateY(-50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) translateY(-50%) scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(-50%) translateY(-50%) scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Fire Weather Index Prediction</h1>
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+            <input type="text" name="RH" placeholder="Relative Humidity" required="required" /><br>
+            <input type="text" name="Ws" placeholder="Wind Speed" required="required" /><br>
+            <input type="text" name="Rain" placeholder="Rainfall" required="required" /><br>
+            <input type="text" name="FFMC" placeholder="Fine Fuel Moisture Code" required="required" /><br>
+            <input type="text" name="DMC" placeholder="Duff Moisture Code" required="required" /><br>
+            <input type="text" name="ISI" placeholder="Initial Spread Index" required="required" /><br>
+            <input type="text" name="Classes" placeholder="Fire Classes" required="required" /><br>
+            <input type="text" name="Region" placeholder="Region" required="required" /><br>
+            <button type="submit"><span>Get Prediction</span></button>
+        </form>
+        <h2>
+            THE FIRE WEATHER INDEX PREDICTION IS {{ result }}
+        </h2>
+    </div>
+</body>
+</html>
