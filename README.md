@@ -50,10 +50,6 @@ This project utilizes machine learning to predict the Fire Weather Index (FWI) b
 - Click the "Predict" button to receive the FWI prediction.
 - Suggested values for each parameter are provided to assist in entering data.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Author
 
 Naman Bhasin
