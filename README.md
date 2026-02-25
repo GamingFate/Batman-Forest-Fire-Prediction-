@@ -44,6 +44,7 @@ Validation RMSE ≈ 0.8
 
 ## Repository Structure
 
+```
 Batman-Forest-Fire-Prediction/
 │
 ├── notebooks/
@@ -62,7 +63,7 @@ Batman-Forest-Fire-Prediction/
 ├── application.py
 │
 └── requirements.txt
-
+```
 
 ### Installation
 
