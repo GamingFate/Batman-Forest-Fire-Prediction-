@@ -44,16 +44,23 @@ Validation RMSE ≈ 0.8
 
 ## Repository Structure
 
+Batman-Forest-Fire-Prediction/
+│
 ├── notebooks/
 │   ├── 2.0-EDA And FE Algerian Forest Fires.ipynb
 │   └── 3.0-Model Training.ipynb
+│
 ├── dataset/
 │   └── Algerian_forest_fires_cleaned_dataset.csv
+│
 ├── models/
 │   ├── ridge.pkl
 │   └── scaler.pkl
+│
 ├── templates/
+│
 ├── application.py
+│
 └── requirements.txt
 
 
