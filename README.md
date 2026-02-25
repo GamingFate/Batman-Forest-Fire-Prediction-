@@ -119,6 +119,9 @@ Very High to Extreme FWI Values (e.g., 31 and above)
 Implication: Represents very high to extreme fire risk. Conditions are highly favorable for fire spread and can lead to significant fire behavior.
 Action: Exercise extreme caution; implement robust fire management strategies and prepare for potential large-scale fires.  
 
+## License
+This project is licensed under the MIT License.
+
 ## Author
 
 Naman Bhasin
