@@ -11,6 +11,28 @@ This project utilizes machine learning to predict the Fire Weather Index (FWI) b
 - Suggestive values for each input field to guide users.
 - Dynamic styling inspired by the Gotham City theme from the Batman universe.
 
+### Problem Type
+Regression task predicting continuous fire risk values.
+
+### Dataset
+Algerian Forest Fire Dataset  
+~244 samples, 10 meteorological features  
+Source: UCI Machine Learning Repository
+
+### ML Pipeline
+Data Cleaning → Exploratory Data Analysis → Feature Engineering →
+Standardization → Train/Test Split (80/20) →
+Ridge Regression Training → RMSE Evaluation →
+Model Serialization → Flask Deployment
+
+### Model Choice
+Ridge Regression was selected to mitigate multicollinearity among meteorological variables while maintaining interpretability on a relatively small dataset.
+
+### Objective Function
+min_w || y − Xw ||^2 + alpha || w ||^2
+
+### Performance
+Validation RMSE ≈ 0.8
 ## Getting Started
 
 ### Prerequisites
@@ -19,6 +41,21 @@ This project utilizes machine learning to predict the Fire Weather Index (FWI) b
 - Flask
 - Scikit-learn
 - Pickle (for model and scaler serialization)
+
+## Repository Structure
+
+├── notebooks/
+│   ├── 2.0-EDA And FE Algerian Forest Fires.ipynb
+│   └── 3.0-Model Training.ipynb
+├── dataset/
+│   └── Algerian_forest_fires_cleaned_dataset.csv
+├── models/
+│   ├── ridge.pkl
+│   └── scaler.pkl
+├── templates/
+├── application.py
+└── requirements.txt
+
 
 ### Installation
 
